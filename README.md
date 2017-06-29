@@ -1,1 +1,2 @@
 # TennisRank
+This is just a test project to become more familiar with graph analysis for summer 2017 internship with the GEMS lab @ UofM. The goal is to develop a sort of pagerank for tennis players in order to analyze them.
