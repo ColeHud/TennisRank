@@ -28,10 +28,18 @@ for player in nodes:
 
 #add edges
 for match in matches:
-	G.add_edge(match["loser"], match["winner"])
+	loser = match["loser"]
+	winner = match["winner"]
+
+	edgeData = G.get_edge_data(loser, winner)
+
+	if edgeData:
+		G.add_edge(loser, winner, weight=(1+edgeData['weight'])) 
+	else:
+		G.add_edge(loser, winner, weight=1)  #edge from loser to winner
 
 #pagerank
-pr = nx.pagerank(G, alpha=0.85)
+pr = nx.pagerank(G, alpha=0.9)
 pprint(pr)
 
 #do a naive sort on the pagerank      SWITCH TO SOMETHING LIKE MERGESORT LATER
